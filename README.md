@@ -6,3 +6,4 @@ https://medium.com/@furkanalniak/spring-boot-actuator-effortless-app-monitoring-
 http://localhost:8080/actuator/health
 http://localhost:8080/actuator/metrics
 http://localhost:8080/actuator/env
+http://localhost:8080/actuator/info
