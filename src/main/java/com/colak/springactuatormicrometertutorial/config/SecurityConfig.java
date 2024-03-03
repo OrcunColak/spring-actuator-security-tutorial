@@ -14,12 +14,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
-                        customizer -> {
-                            customizer.requestMatchers("/actuator/env")
-                                    .authenticated()
-                                    .anyRequest()
-                                    .permitAll();
-                        })
+                        customizer -> customizer.requestMatchers("/actuator/env")
+                                .authenticated()
+                                .anyRequest()
+                                .permitAll())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
 
