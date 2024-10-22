@@ -9,17 +9,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-    // When spring security is enabled only health endpoint is accessible by default
-    // The configuration below does not work
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
-                        customizer -> customizer.requestMatchers("/actuator/env")
-                                .authenticated()
+                        customizer -> customizer.requestMatchers("/actuator/**").permitAll()
                                 .anyRequest()
-                                .permitAll())
+                                .authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
-
     }
 }
